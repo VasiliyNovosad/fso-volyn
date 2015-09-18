@@ -1,0 +1,5 @@
+- @competitions.each do |competition|
+  p
+    = link_to "#{competition.title} (#{competition.begin_date.strftime("%d-%m-%Y %H:%M")} - #{competition.end_date.strftime("%d-%m-%Y %H:%M")})", competition_path(competition)
+p
+  = link_to "Створити новий захід", new_competition_path if user_signed_in?
