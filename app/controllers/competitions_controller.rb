@@ -32,7 +32,7 @@ class CompetitionsController < ApplicationController
     if @competition.update_attributes(competition_params)
       redirect_to competition_path(@competition)
     else
-      render "edit"
+      render 'edit'
     end
   end
 

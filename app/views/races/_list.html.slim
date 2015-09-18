@@ -1,0 +1,17 @@
+- races.each do |race|
+  p
+    = link_to race.title, race_path(race)
+  fieldset
+    legend Період проведення
+    p
+      = "з #{race.begin_date.strftime("%d-%m-%Y %H:%M")} по #{race.end_date.strftime("%d-%m-%Y %H:%M")}"
+  fieldset
+    legend Місце проведення
+    p
+      = race.place
+  fieldset
+    legend Дисципліна
+    p
+      = race.discipline
+p
+  = link_to "Створити новий вид", new_competition_race_path(competition) if user_signed_in? && current_user.author_of?(competition)

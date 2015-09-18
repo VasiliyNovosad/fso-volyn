@@ -1,0 +1,24 @@
+h2
+  = @competition.title
+h3
+  = link_to @race.title, race_path(@race)
+- if user_signed_in? && current_user.author_of?(@competition)
+  p 
+    = link_to "Редагувати", edit_race_path(@race)
+    | &nbsp;
+    = link_to "Видалити", race_path(@race), method: :delete, data: { confirm: "Ви впевнені?" }
+fieldset
+  legend Період проведення
+  p
+    = "з #{@race.begin_date.strftime("%d-%m-%Y %H:%M")} по #{@race.end_date.strftime("%d-%m-%Y %H:%M")}"
+fieldset
+  legend Місце проведення
+  p
+    = @race.place
+fieldset
+  legend Дисципліна
+  p
+    = @race.discipline
+fieldset
+  legend Опис
+  = @race.description.html_safe
