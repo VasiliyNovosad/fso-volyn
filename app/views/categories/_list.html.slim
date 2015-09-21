@@ -1,0 +1,5 @@
+ul
+  - categories.each do |category|
+    li  = link_to category.title, category_path(category)
+p
+  = link_to "Створити нову групу", new_race_category_path(race) if user_signed_in? && current_user.author_of?(competition)

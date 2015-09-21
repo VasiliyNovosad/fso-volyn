@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "competitions#index"
 
   resources :competitions do
-    resources :races, shallow: true
+    resources :races, shallow: true do
+      resources :categories, shallow: true
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,6 @@
+= tinymce
+= form_for @category, url: category_path(@category) do |f|
+  = render 'form', f: f
+  = f.submit "Змінити"
+p
+  = link_to "Відміна", category_path(@category)
