@@ -1,0 +1,21 @@
+h2
+  = link_to @competition.title, competition_path(@competition)
+  | &nbsp;(
+  = link_to @race.title, race_path(@race)
+  | )
+h3
+  = link_to @distance.title, category_path(@distance)
+- if user_signed_in? && current_user.author_of?(@competition)
+  p 
+    = link_to "Редагувати", edit_distance_path(@distance), class: 'btn btn-info'
+    | &nbsp;
+    = link_to "Видалити", distance_path(@distance), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger'
+fieldset
+  legend Опис
+  = @distance.description.html_safe
+fieldset
+  legend Довжина
+  = @distance.distance_length
+fieldset
+  legend Кількість КП
+  = @distance.cp_count

@@ -13,3 +13,25 @@ h3
 fieldset
   legend Опис
   = @category.description.html_safe
+table class="table table-bordered"
+    tr
+      th #
+      /*th Група*/
+      th Прізвище
+      th Ім'я
+      th Дата народження
+      th Тренер
+      th Розряд 
+    - @category.competitors.each_with_index do |competitor, index|
+      tr
+        td 
+          - if user_signed_in? && current_user.author_of?(@competition)
+            = link_to index + 1, competitor_path(competitor)
+          - else
+            = index + 1
+        /*td = competitor.category.title*/
+        td = competitor.surname
+        td = competitor.name
+        td = competitor.birthday.strftime("%d.%m.%Y")
+        td = competitor.trainer
+        td = competitor.qualification

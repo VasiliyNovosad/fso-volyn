@@ -1,0 +1,7 @@
+= tinymce language: "uk_UA"
+= form_for @distance, url: distance_path(@distance) do |f|
+  = render 'form', f: f
+  div.form-group
+    div class="col-sm-offset-2 col-sm-10"
+      = f.submit "Змінити" 
+      = link_to "Відміна", distance_path(@distance), class: "btn btn-default"

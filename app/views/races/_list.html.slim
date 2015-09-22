@@ -2,7 +2,7 @@
   fieldset
     legend 
       = link_to race.title, race_path(race)
-    p = "Період проведення: з #{race.begin_date.strftime("%d-%m-%Y %H:%M")} по #{race.end_date.strftime("%d-%m-%Y %H:%M")}"
+    p = "Період проведення: з #{race.begin_date.strftime("%d.%m.%Y %H:%M")} по #{race.end_date.strftime("%d.%m.%Y %H:%M")}"
     p = "Місце проведення:  #{race.place}"
     p = "Дисципліна:        #{race.discipline}"
 p

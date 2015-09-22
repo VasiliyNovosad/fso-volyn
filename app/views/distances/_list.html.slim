@@ -1,0 +1,5 @@
+ul
+  - distances.each do |distance|
+    li  = link_to distance.title, distance_path(distance)
+p
+  = link_to "Створити нову дистанцію", new_race_distance_path(race), class: 'btn btn-success' if user_signed_in? && current_user.author_of?(competition)

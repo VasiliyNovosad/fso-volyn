@@ -9,11 +9,11 @@ div.form-group
 div.form-group
   = f.label "Період проведення з ", class: "col-sm-2 control-label"
   div.col-sm-10
-    = f.text_field :begin_date, class: "form-control"
+    = f.text_field :begin_date, value: @competition.begin_date.nil? ? '' : @competition.begin_date.strftime("%d.%m.%Y %H:%M"), class: "form-control"
 div.form-group
   = f.label " по ", class: "col-sm-2 control-label"
   div.col-sm-10
-    = f.text_field :end_date, class: "form-control"
+    = f.text_field :end_date, value: @competition.end_date.nil? ? '' : @competition.end_date.strftime("%d.%m.%Y %H:%M"), class: "form-control"
 div.form-group
   = f.label "Положення", class: "col-sm-2 control-label"
   div.col-sm-10

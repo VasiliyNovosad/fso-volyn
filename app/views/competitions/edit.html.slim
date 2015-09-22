@@ -1,4 +1,4 @@
-= tinymce
+= tinymce language: "uk_UA"
 = form_for @competition, url: competition_path(@competition) do |f|
   = render 'form', f: f
   div.form-group
@@ -6,5 +6,5 @@
       = f.submit "Змінити" 
       = link_to "Відміна", competition_path(@competition), class: "btn btn-default"
 javascript:
-  $('#competition_begin_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
-  $('#competition_end_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
+  $('#competition_begin_date').datetimepicker({format:'d.m.Y H:i', dayOfWeekStart:1, lang:'uk' });
+  $('#competition_end_date').datetimepicker({format:'d.m.Y H:i', dayOfWeekStart:1, lang:'uk' });

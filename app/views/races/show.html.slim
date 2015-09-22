@@ -9,7 +9,7 @@ h3
     = link_to "Видалити", race_path(@race), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger'
 fieldset
   legend Період проведення
-  = "з #{@race.begin_date.strftime("%d-%m-%Y %H:%M")} по #{@race.end_date.strftime("%d-%m-%Y %H:%M")}"
+  = "з #{@race.begin_date.strftime("%d.%m.%Y %H:%M")} по #{@race.end_date.strftime("%d.%m.%Y %H:%M")}"
 fieldset
   legend Місце проведення
   = @race.place
@@ -20,5 +20,10 @@ fieldset
   legend Опис
   = @race.description.html_safe
 fieldset
+  = link_to "Список зареєстрованих учасників", race_competitors_path(@race)
+fieldset
   legend Групи
-  = render 'categories/list', {categories: @race.categories, race: @race, competition: @competition}
+  = render 'categories/list', { categories: @race.categories, race: @race, competition: @competition }
+fieldset
+  legend Дистанції
+  = render 'distances/list', { distances: @race.distances, race: @race, competition: @competition }

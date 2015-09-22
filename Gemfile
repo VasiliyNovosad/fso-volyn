@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'slim-rails'
 gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
 end

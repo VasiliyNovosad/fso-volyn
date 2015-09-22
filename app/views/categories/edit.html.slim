@@ -1,6 +1,10 @@
-= tinymce
+= tinymce language: "uk_UA"
 = form_for @category, url: category_path(@category) do |f|
   = render 'form', f: f
+  div.form-group
+  = f.label "Дистанція", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.collection_select(:distance_id, Distance.where(race: @race), :id, :title, class: "form-control")
   div.form-group
     div class="col-sm-offset-2 col-sm-10"
       = f.submit "Змінити" 

@@ -4,7 +4,7 @@ h2
 h3
   = link_to @race.title, race_path(@race)
 h4 Нова група
-= form_for @category, url: race_categories_path(@race) do |f|
+= form_for @distance, url: race_distances_path(@race) do |f|
   = render 'form', f: f
   div.form-group
     div class="col-sm-offset-2 col-sm-10"

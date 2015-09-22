@@ -5,4 +5,4 @@
       = f.submit "Змінити" 
       = link_to "Відміна", competitor_path(@competitor), class: "btn btn-default"
 javascript:
-  $('#competitor_birthday').datetimepicker({format:'d.m.Y', lang:'uk' });
+  $('#competitor_birthday').datetimepicker({format:'d.m.Y', dayOfWeekStart:1, timepicker:false, lang:'uk' });

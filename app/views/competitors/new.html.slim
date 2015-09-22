@@ -10,4 +10,4 @@ h4 Нова заявка
       = f.submit "Створити" 
       = link_to "Відміна", race_path(@race), class: "btn btn-default"
 javascript:
-  $('#competitor_birthday').datetimepicker({format:'d.m.Y', lang:'uk' });
+  $('#competitor_birthday').datetimepicker({format:'d.m.Y', dayOfWeekStart:1, timepicker:false, lang:'uk' });

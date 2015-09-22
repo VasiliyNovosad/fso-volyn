@@ -13,7 +13,7 @@ div.form-group
 div.form-group
   = f.label "Дата народження ", class: "col-sm-2 control-label"
   div.col-sm-10
-    = f.text_field :birthday, class: "form-control"
+    = f.text_field :birthday, value: @competitor.birthday.nil? ? '' : @competitor.birthday.strftime("%d.%m.%Y"), class: "form-control"
 div.form-group
   = f.label "Тренер ", class: "col-sm-2 control-label"
   div.col-sm-10

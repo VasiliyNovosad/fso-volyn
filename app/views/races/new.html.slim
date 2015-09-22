@@ -1,4 +1,4 @@
-= tinymce
+= tinymce language: "uk_UA"
 h2
   = link_to @competition.title, competition_path(@competition)
 h4 Новий вид
@@ -9,5 +9,5 @@ h4 Новий вид
       = f.submit "Створити" 
       = link_to "Відміна", competition_path(@competition), class: "btn btn-default"
 javascript:
-  $('#race_begin_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
-  $('#race_end_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
+  $('#race_begin_date').datetimepicker({format:'d.m.Y H:i', dayOfWeekStart:1, lang:'uk' });
+  $('#race_end_date').datetimepicker({format:'d.m.Y H:i', dayOfWeekStart:1, lang:'uk' });

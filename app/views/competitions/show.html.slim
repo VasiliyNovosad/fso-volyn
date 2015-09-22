@@ -6,7 +6,7 @@ h2 = @competition.title
     = link_to "Видалити", competition_path(@competition), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger'
 fieldset
   legend Термін проведення
-  = "з #{@competition.begin_date.strftime("%d-%m-%Y %H:%M")} по #{@competition.end_date.strftime("%d-%m-%Y %H:%M")}"
+  = "з #{@competition.begin_date.strftime("%d.%m.%Y %H:%M")} по #{@competition.end_date.strftime("%d.%m.%Y %H:%M")}"
 fieldset
   legend Опис
   = @competition.description.html_safe

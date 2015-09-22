@@ -1,8 +1,13 @@
+h2
+  = link_to @competition.title, competition_path(@competition)
+  | &nbsp;(
+  = link_to @race.title, race_path(@race)
+  | )
 - race.categories.each do |category|
-  table.table-bordered
+  table class="table table-bordered"
     theader = category.title
     tr
-      th №п/п
+      th #
       /*th Група*/
       th Прізвище
       th Ім'я
@@ -19,7 +24,7 @@
         /*td = competitor.category.title*/
         td = competitor.surname
         td = competitor.name
-        td = competitor.birthday.strftime("%d-%m-%Y")
+        td = competitor.birthday.strftime("%d.%m.%Y")
         td = competitor.trainer
         td = competitor.qualification
   p &nbsp;

@@ -1,0 +1,16 @@
+div.form-group
+  = f.label "Назва", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :title, class: "form-control"
+div.form-group
+  = f.label "Опис", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_area :description, class: "form-control tinymce"
+div.form-group
+  = f.label "Довжина", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.number_field :distance_length, class: "form-control tinymce"
+div.form-group
+  = f.label "Кількість КП", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.number_field :cp_count, value: 1, step: 1,  class: "form-control tinymce"
