@@ -32,6 +32,8 @@ gem 'tinymce-rails'
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
 end
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'rspec-rails'

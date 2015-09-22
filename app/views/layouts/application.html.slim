@@ -7,19 +7,20 @@ html
     = csrf_meta_tags
     = tinymce_assets
   body
-  
-  div.header
-    - if user_signed_in?
-      p
-        = "#{current_user.email} "
-        = link_to "Вийти", destroy_user_session_path, method: :delete
-    - else
-      p
-        = link_to "Увійти", new_user_session_path
-        | &nbsp;
-        = link_to "Зареєструватись", new_user_registration_path
-  
-  div.content
-    p.notice = notice
-    p.alert = alert
-    = yield
+    = render 'shared/navigation'
+    div.container#main-container
+      div.row
+        div.col-xs-9
+          - if user_signed_in?
+            p
+              = "#{current_user.email} "
+              = link_to "Вийти", destroy_user_session_path, method: :delete
+          - else
+            p
+              = link_to "Увійти", new_user_session_path
+              | &nbsp;
+              = link_to "Зареєструватись", new_user_registration_path
+        div.col-xs-9
+          p.notice = notice
+          p.alert = alert
+          = yield

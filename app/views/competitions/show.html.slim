@@ -1,9 +1,9 @@
 h2 = @competition.title
 - if user_signed_in? && current_user.author_of?(@competition)
   p 
-    = link_to "Редагувати", edit_competition_path(@competition)
+    = link_to "Редагувати", edit_competition_path(@competition), class: 'btn btn-info'
     | &nbsp;
-    = link_to "Видалити", competition_path(@competition), method: :delete, data: { confirm: "Ви впевнені?" }
+    = link_to "Видалити", competition_path(@competition), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger'
 fieldset
   legend Термін проведення
   = "з #{@competition.begin_date.strftime("%d-%m-%Y %H:%M")} по #{@competition.end_date.strftime("%d-%m-%Y %H:%M")}"

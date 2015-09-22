@@ -1,0 +1,15 @@
+h2
+  = link_to @competition.title, competition_path(@competition)
+h3
+  = link_to @race.title, race_path(@race)
+- if user_signed_in? && current_user.author_of?(@competition)
+  p 
+    = link_to "Редагувати", edit_competitor_path(@competitor), class: 'btn btn-info'
+    | &nbsp;
+    = link_to "Видалити", competitor_path(@competitor), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger'
+p = "Група: #{@competitor.category.title}"
+p = "Прізвище: #{@competitor.surname}"
+p = "Ім'я: #{@competitor.name}"
+p = "Дата народження: #{@competitor.birthday.strftime("%d-%m-%Y")}"
+p = "Тренер: #{@competitor.trainer}"
+p = "Розряд: #{@competitor.qualification}"

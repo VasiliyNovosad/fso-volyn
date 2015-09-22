@@ -1,0 +1,27 @@
+- race.categories.each do |category|
+  table.table-bordered
+    theader = category.title
+    tr
+      th №п/п
+      /*th Група*/
+      th Прізвище
+      th Ім'я
+      th Дата народження
+      th Тренер
+      th Розряд 
+    - competitors.where(category: category).each_with_index do |competitor, index|
+      tr
+        td 
+          - if user_signed_in? && current_user.author_of?(competition)
+            = link_to index + 1, competitor_path(competitor)
+          - else
+            = index + 1
+        /*td = competitor.category.title*/
+        td = competitor.surname
+        td = competitor.name
+        td = competitor.birthday.strftime("%d-%m-%Y")
+        td = competitor.trainer
+        td = competitor.qualification
+  p &nbsp;
+p
+  = link_to "Створити нову заявку", new_race_competitor_path(race), class: 'btn btn-success'

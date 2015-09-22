@@ -1,16 +1,20 @@
-  p
-    = f.label "Назва "
-    = f.text_field :title
-  p
-    = f.label "Опис"
-  p
-    = f.text_area :description, class: "tinymce"
-  p
-    = f.label "Період проведення з "
-    = f.text_field :begin_date
-    = f.label " по "
-    = f.text_field :end_date
-  p
-    = f.label "Положення"
-  p
-    = f.text_area :bulletin, class: "tinymce"
+div.form-group
+  = f.label "Назва ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :title, class: "form-control"
+div.form-group
+  = f.label "Опис", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_area :description, class: "form-control tinymce"
+div.form-group
+  = f.label "Період проведення з ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :begin_date, class: "form-control"
+div.form-group
+  = f.label " по ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :end_date, class: "form-control"
+div.form-group
+  = f.label "Положення", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_area :bulletin, class: "form-control tinymce"

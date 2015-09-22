@@ -1,9 +1,10 @@
 = tinymce
 = form_for @competition, url: competitions_path do |f|
   = render 'form', f: f
-  = f.submit "Створити"
-p
-  = link_to "Відміна", competitions_path
+  div.form-group
+    div class="col-sm-offset-2 col-sm-10"
+      = f.submit "Створити" 
+      = link_to "Відміна", competitions_path, class: "btn btn-default"
 javascript:
   $('#competition_begin_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
   $('#competition_end_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });

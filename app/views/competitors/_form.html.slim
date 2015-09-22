@@ -1,0 +1,24 @@
+div.form-group
+  = f.label "Група ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.collection_select(:category_id, Category.where(race: @race), :id, :title, class: "form-control")
+div.form-group
+  = f.label "Прізвище ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :surname, class: "form-control"
+div.form-group
+  = f.label "Ім'я ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :name, class: "form-control"
+div.form-group
+  = f.label "Дата народження ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :birthday, class: "form-control"
+div.form-group
+  = f.label "Тренер ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :trainer, class: "form-control"
+div.form-group
+  = f.label "Розряд ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.select(:qualification, ['-', 'III-юн', 'II-юн', 'I-юн', 'III', 'II', 'I', 'КМС', 'МС'], class: "form-control")

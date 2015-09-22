@@ -1,9 +1,10 @@
 = tinymce
 = form_for @race, url: race_path(@race) do |f|
   = render 'form', f: f
-  = f.submit "Змінити"
-p
-  = link_to "Відміна", race_path(@race)
+  div.form-group
+    div class="col-sm-offset-2 col-sm-10"
+      = f.submit "Змінити" 
+      = link_to "Відміна", race_path(@race), class: "btn btn-default" 
 javascript:
   $('#race_begin_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });
   $('#race_end_date').datetimepicker({format:'d.m.Y H:i', lang:'uk' });

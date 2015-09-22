@@ -1,12 +1,13 @@
-= tinymce
 h2
   = link_to @competition.title, competition_path(@competition)
 h3
   = link_to @race.title, race_path(@race)
-h4 Нова група
-= form_for @category, url: race_categories_path(@race) do |f|
+h4 Нова заявка
+= form_for @competitor, url: race_competitors_path(@race) do |f|
   = render 'form', f: f
   div.form-group
     div class="col-sm-offset-2 col-sm-10"
       = f.submit "Створити" 
       = link_to "Відміна", race_path(@race), class: "btn btn-default"
+javascript:
+  $('#competitor_birthday').datetimepicker({format:'d.m.Y', lang:'uk' });

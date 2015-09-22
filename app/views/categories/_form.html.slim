@@ -1,7 +1,8 @@
-  p
-    = f.label "Назва "
-    = f.text_field :title
-  p
-    = f.label "Опис"
-  p
-    = f.text_area :description, class: "tinymce"
+  div.form-group
+    = f.label "Назва", class: "col-sm-2 control-label"
+    div.col-sm-10
+      = f.text_field :title, class: "form-control"
+  div.form-group
+    = f.label "Опис", class: "col-sm-2 control-label"
+    div.col-sm-10
+      = f.text_area :description, class: "form-control tinymce"

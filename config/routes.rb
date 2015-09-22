@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :competitions do
     resources :races, shallow: true do
       resources :categories, shallow: true
+      resources :competitors, shallow: true
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
