@@ -1,5 +1,11 @@
-- @competitions.each do |competition|
-  p
-    = link_to "#{competition.title} (#{competition.begin_date.strftime("%d.%m.%Y %H:%M")} - #{competition.end_date.strftime("%d.%m.%Y %H:%M")})", competition_path(competition)
-p
-  = link_to "Створити новий захід", new_competition_path, class: 'btn btn-success' if user_signed_in?
+
+div.panel.panel-default
+  div.panel-heading
+    h3.panel-title Усі заходи
+  div.panel-body
+    - @competitions.each do |competition|
+      div.col-xs-12
+        = link_to "#{competition.title} (#{competition.begin_date.strftime("%d.%m.%Y %H:%M")} - #{competition.end_date.strftime("%d.%m.%Y %H:%M")})", competition_path(competition)
+        div.col-xs-9 = competition.description.html_safe
+    div.col-xs-12
+      = link_to "Створити новий захід", new_competition_path, class: 'btn btn-success' if user_signed_in?

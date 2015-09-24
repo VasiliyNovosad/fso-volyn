@@ -1,0 +1,16 @@
+div.col-sm-4
+  h2 = t('.resend_confirmation_title')
+
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-horizontal" }) do |f|
+    = devise_error_messages!
+
+    div.form-group
+      = f.label :email, class: "col-sm-2 control-label"
+      div.col-sm-10
+        = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+
+    div.form-group
+        div.col-sm-offset-2.col-sm-10
+          = f.submit t('.resend_confirmation'), class: "btn btn-info"
+    
+  = render "devise/shared/links"
