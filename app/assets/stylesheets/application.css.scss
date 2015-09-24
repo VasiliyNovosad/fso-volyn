@@ -20,3 +20,10 @@
 
 input[type=submit] { @extend .btn; }
 form { @extend .form-horizontal }
+.navbar .navbar-brand {
+    background-image: url(/fsov.jpg);
+    background-repeat: no-repeat;
+    background-size: 39px 39px;
+    background-position: 10px 5px;
+    padding-left: 60px;
+}
