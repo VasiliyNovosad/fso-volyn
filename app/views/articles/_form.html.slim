@@ -1,0 +1,12 @@
+div.form-group
+  = f.label "Назва ", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_field :title, class: "form-control"
+div.form-group
+  = f.label "Короткий опис", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_area :short_text, class: "form-control tinymce"
+div.form-group
+  = f.label "Повний опис", class: "col-sm-2 control-label"
+  div.col-sm-10
+    = f.text_area :text, class: "form-control tinymce"

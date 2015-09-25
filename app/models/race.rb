@@ -3,4 +3,6 @@ class Race < ActiveRecord::Base
   has_many :categories
   has_many :competitors
   has_many :distances
+
+  validates :title, presence: true
 end

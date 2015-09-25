@@ -1,0 +1,9 @@
+div
+  = link_to "Додати нову новину", new_article_path, class: 'btn btn-success' if user_signed_in?
+- @articles.each do |article|
+      div.col-md-4.col-sm-6
+        h2 = article.title
+        = article.short_text.html_safe
+        = link_to "Прочитати", article_path(article), class: "btn btn-default"
+
+      

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "competitions#index"
+  root to: "articles#index"
 
+  resources :articles
   resources :competitions do
     resources :races, shallow: true do
       resources :categories, shallow: true

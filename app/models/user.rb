@@ -5,9 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :competitions
+  has_many :articles
+
+  validates :name, presence: true, uniqueness: true
 
   def author_of?(competition)
     competition.user.id == self.id
+  end
+
+  def author_of?(article)
+    article.user.id == self.id
   end
 
 end

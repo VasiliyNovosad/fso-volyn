@@ -1,0 +1,10 @@
+div.blog-post
+  h2.blog-post-title = @article.title
+  p.blog-post-meta 
+    small = "Додав: #{@article.user.name} | Дата: #{@article.created_at.strftime("%d.%m.%Y")}"
+    - if user_signed_in? && current_user.author_of?(@article)
+      span &nbsp;|&nbsp;
+      = link_to "Редагувати", edit_article_path(@article), class: "btn btn-info btn-xs"
+      span &nbsp;|&nbsp;
+      = link_to "Видалити", article_path(@article), method: :delete, data: { confirm: "Ви впевнені?" }, class: 'btn btn-danger btn-xs'
+  p = @article.text.html_safe

@@ -4,8 +4,9 @@ uk:
   activerecord:
     attributes:
       user:
+        name: "Ім'я"
         current_password: "Поточний пароль"
-        email: Email
+        email: "Email"
         password: "Пароль"
         password_confirmation: "Підтвердження пароля"
         remember_me: "Запам'ятати мене"
@@ -58,6 +59,16 @@ uk:
         sign_up_title: "Реєстрація"
         sign_up: "Зареєструватись"
         minimum_password_length: "символів мінімум"
+      edit:
+        edit_title: "Редагування реквізитів"
+        edit_password: "залиште порожнім, якщо не хочете змінити"
+        current_password: "введіть поточний пароль для підтвердження змін"
+        update: "Змінити"
+        cancel_account_title: "Видалення аккаунту"
+        cancel_account: "Видалити"
+        cancel_account_text: "Втомились?"
+        back_up: "Повернутись"
+        cancel_confirm: "Ви впевнені?"
       destroyed: "Бувайте! Ваш аккаунт видалено. Ми сподіваємось знову Вас побачити."
       signed_up: "Привіт! Ви увійшли у свій аккаунт."
       signed_up_but_inactive: "Ви успішно зареєструвались. Однак Ви ще не можете увійти, бо Ваш аккаунт ще не активовано."
