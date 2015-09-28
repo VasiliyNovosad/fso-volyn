@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925133950) do
+ActiveRecord::Schema.define(version: 20150928063512) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150925133950) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description", limit: 255
     t.integer  "race_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20150925133950) do
 
   create_table "competitions", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description", limit: 255
     t.datetime "begin_date"
     t.datetime "end_date"
     t.integer  "user_id"
-    t.string   "bulletin"
+    t.text     "bulletin",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150925133950) do
 
   create_table "distances", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description",     limit: 255
     t.integer  "distance_length"
     t.decimal  "cp_count"
     t.integer  "race_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20150925133950) do
 
   create_table "races", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description",    limit: 255
     t.string   "discipline"
     t.datetime "begin_date"
     t.datetime "end_date"
