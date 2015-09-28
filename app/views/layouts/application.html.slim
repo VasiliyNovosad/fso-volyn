@@ -10,12 +10,13 @@ html
     = csrf_meta_tags
     = tinymce_assets
   body
-    = render 'shared/navigation'
-    div.container#main-container
-      div.row
-        div
-          - flash.each do |name, msg|
-            = content_tag :div, msg, class: "alert alert-#{name}"
-      div.row
-        div
-          = yield
+    div.container
+      = render 'shared/navigation'
+      div.container#main-container
+        div.row
+          div
+            - flash.each do |name, msg|
+              = content_tag :div, msg, class: "alert alert-#{name}"
+        div.row
+          div
+            = yield
