@@ -1,4 +1,6 @@
-h2 = @competition.title
+- @page_description = "Захід #{@competition.title} федерації спортивного орієнтування Волині"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід " + @competition.title
+h2 = @page_title = @competition.title
 - if user_signed_in? && current_user.author_of?(@competition)
   p 
     = link_to "Редагувати", edit_competition_path(@competition), class: 'btn btn-info'

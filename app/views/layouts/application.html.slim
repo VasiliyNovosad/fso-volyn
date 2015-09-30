@@ -4,11 +4,12 @@ html
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    title ФСО Волині
+    /*title ФСО Волині*/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = tinymce_assets
+    = display_meta_tags(site: "Федерація спортивного орієнтування Волині", title: @page_title, reverse: true, description: @page_description, keywords: @page_keywords, author: "Vasyl Novosad")
   body
     div.container
       = render 'shared/navigation'

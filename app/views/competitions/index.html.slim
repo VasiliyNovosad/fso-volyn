@@ -1,7 +1,8 @@
-
+- @page_description = "Список заходів федерації спортивного орієнтування Волині"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід"
 div.panel.panel-default
   div.panel-heading
-    h3.panel-title Усі заходи
+    h3.panel-title = @page_title = "Усі заходи"
   div.panel-body
     - @competitions.each do |competition|
       div.col-xs-12

@@ -1,1 +1,4 @@
+- @page_description = "Список дистанцій виду змагань #{@race.title} заходу #{@competition.title} федерації спортивного орієнтування Волині"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід " + @competition.title + " " + @race.title
+- @page_title = "Список дистанцій | " + @race.title + " | " + @competition.title
 = render 'list', {distances: @distances, race: @race, competition: @competition}

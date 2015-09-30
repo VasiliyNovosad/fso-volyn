@@ -1,3 +1,6 @@
+- @page_description = "Список новин федерації спортивного орієнтування Волині"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід"
+h2 = @page_title = "Новини"
 div
   = link_to "Додати нову новину", new_article_path, class: 'btn btn-success' if user_signed_in?
 - @articles.each do |article|

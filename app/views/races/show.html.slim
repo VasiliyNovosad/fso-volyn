@@ -1,3 +1,6 @@
+- @page_description = "Вид змагань #{@race.title} заходу #{@competition.title}"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід види " + @competition.title + " " + @race.title + " " + @race.discipline
+- @page_title = @race.title + " | " + @competition.title
 h2
   = link_to @competition.title, competition_path(@competition)
 h3

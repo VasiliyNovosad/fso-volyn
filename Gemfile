@@ -4,7 +4,7 @@ ruby '2.1.5'
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
+  gem 'rails_12factor',  platforms: :ruby
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -39,6 +39,7 @@ source 'https://rails-assets.org' do
 end
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'meta-tags'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
