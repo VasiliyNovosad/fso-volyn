@@ -17,3 +17,9 @@
 //= require datetimepicker
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function(){
+  $(window).load(function() {
+    $(document).foundation();
+  });
+});

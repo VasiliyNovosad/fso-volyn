@@ -8,10 +8,12 @@ div.row
         span.icon-bar
       a.navbar-brand href="/"
        | ФСО Волині
-    div.collapse.navbar-collapse.in id="navbar" aria-expanded="true" 
-      ul.nav.navbar-nav
-        li.active = link_to "Новини", articles_path
-        li = link_to "Заходи", competitions_path
+    div.collapse.navbar-collapse id="navbar" aria-expanded="true" 
+      ul.nav.navbar-nav role="tablist"
+        li.toggle-topbar 
+          = link_to "Новини", articles_path
+        li.toggle-topbar 
+          = link_to "Заходи", competitions_path
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li = link_to  current_user.name, edit_user_registration_path

@@ -1,1 +1,4 @@
+- @page_description = "Список зареєстрованих учасників виду змагань #{@race.title} заходу #{@competition.description}"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання захід " + @competition.title
+- @page_title = "Список зареєстрованих учасників | " + @race.title + " | " + @competition.title
 = render 'list', {competitors: @competitors, race: @race, competition: @competition}
