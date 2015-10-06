@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150928063512) do
 
-  create_table "articles", force: true do |t|
+  create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "short_text"
     t.text     "text"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20150928063512) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 255
+    t.text     "description"
     t.integer  "race_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,18 +36,18 @@ ActiveRecord::Schema.define(version: 20150928063512) do
   add_index "categories", ["distance_id"], name: "index_categories_on_distance_id"
   add_index "categories", ["race_id"], name: "index_categories_on_race_id"
 
-  create_table "competitions", force: true do |t|
+  create_table "competitions", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 255
+    t.text     "description"
     t.datetime "begin_date"
     t.datetime "end_date"
     t.integer  "user_id"
-    t.text     "bulletin",    limit: 255
+    t.text     "bulletin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "competitors", force: true do |t|
+  create_table "competitors", force: :cascade do |t|
     t.string   "surname"
     t.string   "name"
     t.datetime "birthday"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20150928063512) do
   add_index "competitors", ["category_id"], name: "index_competitors_on_category_id"
   add_index "competitors", ["race_id"], name: "index_competitors_on_race_id"
 
-  create_table "distances", force: true do |t|
+  create_table "distances", force: :cascade do |t|
     t.string   "title"
-    t.text     "description",     limit: 255
+    t.text     "description"
     t.integer  "distance_length"
     t.decimal  "cp_count"
     t.integer  "race_id"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20150928063512) do
 
   add_index "distances", ["race_id"], name: "index_distances_on_race_id"
 
-  create_table "races", force: true do |t|
+  create_table "races", force: :cascade do |t|
     t.string   "title"
-    t.text     "description",    limit: 255
+    t.text     "description"
     t.string   "discipline"
     t.datetime "begin_date"
     t.datetime "end_date"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150928063512) do
 
   add_index "races", ["competition_id"], name: "index_races_on_competition_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

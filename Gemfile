@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.1'
 
 group :production do
   gem 'pg'
@@ -8,14 +8,14 @@ group :production do
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
-gem 'coffee-script-source', '1.8.0'
+gem 'coffee-script-source'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
