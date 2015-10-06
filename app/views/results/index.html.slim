@@ -1,0 +1,7 @@
+- @page_description = "Результати змагань #{@race.title} заходу #{@competition.description}"
+- @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання результати захід " + @competition.title
+- @page_title = "Результати змагань | " + @race.title + " | " + @competition.title
+= render 'list', {results: @results, race: @race, competition: @competition}
+- if user_signed_in? && current_user.author_of?(@competition)
+  p 
+    = link_to "Додати учасника", new_race_result_path(@race), class: 'btn btn-success'

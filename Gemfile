@@ -40,6 +40,7 @@ end
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'meta-tags'
+gem 'time_diff'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

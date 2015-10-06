@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928063512) do
+ActiveRecord::Schema.define(version: 20151006182635) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -87,6 +87,20 @@ ActiveRecord::Schema.define(version: 20150928063512) do
   end
 
   add_index "races", ["competition_id"], name: "index_races_on_competition_id"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "start_number"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string   "state"
+    t.integer  "competitor_id"
+    t.integer  "race_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "results", ["competitor_id"], name: "index_results_on_competitor_id"
+  add_index "results", ["race_id"], name: "index_results_on_race_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

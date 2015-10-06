@@ -1,0 +1,11 @@
+h2
+  = link_to @competition.title, competition_path(@competition)
+h3
+  = link_to @race.title, race_path(@race)
+h4 Новий учасник
+= form_for @result, url: race_results_path(@race) do |f|
+  = render 'form', f: f
+  div.form-group
+    div class="col-sm-offset-2 col-sm-10"
+      = f.submit "Створити" 
+      = link_to "Відміна", race_results_path(@race), class: "btn btn-default"

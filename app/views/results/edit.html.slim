@@ -1,0 +1,6 @@
+= form_for @result, url: race_results_path(@race) do |f|
+  = render 'form', f: f
+  div.form-group
+    div class="col-sm-offset-2 col-sm-10"
+      = f.submit "Змінити" 
+      = link_to "Відміна", race_results_path(@race), class: "btn btn-default"

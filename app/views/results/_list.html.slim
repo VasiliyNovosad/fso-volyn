@@ -1,0 +1,43 @@
+- require 'time_diff'
+- race.categories.each do |category|
+  table class="table table-bordered"
+    theader = category.title
+    tr
+      th #
+      /*th Група*/
+      th Прізвище
+      th Ім'я
+      th Дата народження
+      th Тренер
+      th Розряд 
+      th Номер 
+      th Час 
+      th Місце
+      - if user_signed_in? && current_user.author_of?(competition)
+        th Старт
+        th Фініш
+    - Competitor.where(category: category).each_with_index do |competitor, index|
+      - if competitor.result
+        tr
+          td 
+            - if user_signed_in? && current_user.author_of?(competition)
+              = link_to index + 1, edit_result_path(competitor.result)
+            - else
+              = index + 1
+          /*td = competitor.category.title*/
+          td = competitor.surname
+          td = competitor.name
+          td = competitor.birthday.strftime("%d.%m.%Y")
+          td = competitor.trainer
+          td = competitor.qualification
+          td = competitor.result.start_number
+          td 
+            - if competitor.result.state == "-" 
+              = Time.diff(competitor.result.start_at, competitor.result.finish_at, '%h:%m:%s')[:diff] if competitor.result.finish_at && competitor.result.start_at
+            - else
+              = competitor.result.state
+          td = index + 1
+          - if user_signed_in? && current_user.author_of?(competition)
+            td = link_to "Старт", start_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.start_at 
+            td = link_to "Фініш", finish_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.finish_at
+  p &nbsp;

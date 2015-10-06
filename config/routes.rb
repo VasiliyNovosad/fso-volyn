@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       resources :categories, shallow: true
       resources :competitors, shallow: true
       resources :distances, shallow: true
+      resources :results, shallow: true do
+        get 'start', on: :member
+        get 'finish', on: :member
+      end
     end
   end
 
