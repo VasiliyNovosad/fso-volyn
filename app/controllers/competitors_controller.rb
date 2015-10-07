@@ -16,7 +16,7 @@ class CompetitorsController < ApplicationController
     @competitor = Competitor.new(competitor_params)
     @competitor.race = @race
     if @competitor.save
-      redirect_to race_path(@race)
+      redirect_to race_competitors_path(@race)
     else
       render 'new'
     end

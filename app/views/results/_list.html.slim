@@ -16,7 +16,7 @@
       - if user_signed_in? && current_user.author_of?(competition)
         th Старт
         th Фініш
-    - Competitor.where(category: category).each_with_index do |competitor, index|
+    - race.competitors.where(category: category).joins(:result).sort { |a, b| (a.result.state <=> b.result.state).nonzero? || (a.result.finish_at - a.result.start_at <=> b.result.finish_at - b.result.start_at) }.each_with_index do |competitor, index|
       - if competitor.result
         tr
           td 
@@ -36,8 +36,8 @@
               = Time.diff(competitor.result.start_at, competitor.result.finish_at, '%h:%m:%s')[:diff] if competitor.result.finish_at && competitor.result.start_at
             - else
               = competitor.result.state
-          td = index + 1
-          - if user_signed_in? && current_user.author_of?(competition)
-            td = link_to "Старт", start_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.start_at 
-            td = link_to "Фініш", finish_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.finish_at
+          td = index + 1 if competitor.result.state == "-"
+          - if user_signed_in? && current_user.author_of?(competition) 
+            td = link_to "Старт", start_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.start_at || competitor.result.state != "-"
+            td = link_to "Фініш", finish_result_path(competitor.result), class: 'btn btn-success' unless competitor.result.finish_at || competitor.result.state != "-"
   p &nbsp;

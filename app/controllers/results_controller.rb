@@ -17,7 +17,7 @@ class ResultsController < ApplicationController
     @result = Result.new(result_params)
     @result.race = @race
     if @result.save
-      redirect_to race_path(@race)
+      redirect_to race_results_path(@race)
     else
       render "new"
     end
@@ -31,7 +31,7 @@ class ResultsController < ApplicationController
 
   def update
     if @result.update_attributes(result_params)
-      redirect_to result_path(@result)
+      redirect_to race_results_path(@race)
     else
       render "edit"
     end
@@ -39,7 +39,7 @@ class ResultsController < ApplicationController
 
   def destroy
     @result.destroy
-    redirect_to race_path(@race)
+    redirect_to race_results_path(@race)
   end
 
   def start
