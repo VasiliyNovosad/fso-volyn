@@ -1,7 +1,16 @@
 - @page_description = "Результати змагань #{@race.title} заходу #{@competition.description}"
 - @page_keywords = "федерація спортивне орієнтування Волинь Луцьк змагання результати захід " + @competition.title
 - @page_title = "Результати змагань | " + @race.title + " | " + @competition.title
-= render 'list', {results: @results, race: @race, competition: @competition}
 - if user_signed_in? && current_user.author_of?(@competition)
-  p 
-    = link_to "Додати учасника", new_race_result_path(@race), class: 'btn btn-success'
+    p 
+      = link_to "Додати учасника", new_race_result_path(@race), class: 'btn btn-success'
+      | &nbsp;
+      = timepiece('Kyiv')
+  
+    = form_tag("/race/#{@race.id}/results/add", method: "post", class: "form-inline") do
+      div.form-group
+        = label_tag :answer, "Номер:"
+        = text_field_tag :answer, nil, class: "form-control" 
+      = submit_tag " Відмітити ", class: "btn btn-default" 
+
+    = render 'list', {results: @results, race: @race, competition: @competition}

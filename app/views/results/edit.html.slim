@@ -1,6 +1,13 @@
 = form_for @result, url: result_path(@result) do |f|
   = render 'form', f: f
   div.form-group
+    div.form-group
+      = f.label "Старт ", class: "col-sm-2 control-label"
+      div.col-sm-10
+        = f.text_field :start_at, class: "form-control"
+      = f.label "Фініш ", class: "col-sm-2 control-label"
+      div.col-sm-10
+        = f.text_field :finish_at, class: "form-control"
     div class="col-sm-offset-2 col-sm-10"
       = f.submit "Змінити" 
       = link_to "Відміна", race_results_path(@race), class: "btn btn-default"

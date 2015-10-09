@@ -3,6 +3,8 @@ h2
   | &nbsp;(
   = link_to @race.title, race_path(@race)
   | )
+p
+  = link_to "Створити нову заявку", new_race_competitor_path(race), class: 'btn btn-success'
 - race.categories.each do |category|
   table class="table table-bordered"
     theader = category.title
@@ -28,5 +30,3 @@ h2
         td = competitor.trainer
         td = competitor.qualification
   p &nbsp;
-p
-  = link_to "Створити нову заявку", new_race_competitor_path(race), class: 'btn btn-success'

@@ -16,6 +16,7 @@
 //= require tinymce-jquery
 //= require datetimepicker
 //= require bootstrap-sprockets
+//= require timepiece
 //= require_tree .
 
 $(function(){

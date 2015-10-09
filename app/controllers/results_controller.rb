@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-  before_action :find_race, only: [:index, :new, :create]
+  before_action :find_race, only: [:index, :new, :create, :set_result]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_result, only: [:show, :edit, :update, :destroy, :start, :finish]
   before_action :ensure_author, only: [:new, :create, :edit, :update, :destroy]
@@ -51,6 +51,26 @@ class ResultsController < ApplicationController
   def finish
     @result.finish_at = Time.now
     @result.save!
+    render 'index'
+  end
+
+  def set_result
+    time_now = Time.now
+    @answers = params[:answer].strip.split(",")
+    @answers.each do |answer|
+      @result = @race.results.find_by(start_number: answer.strip.to_i)
+      if @result
+        if not @result.start_at
+          @result.start_at = time_now
+          @result.save!
+        else
+          if not @result.finish_at
+            @result.finish_at = time_now
+            @result.save!
+          end
+        end
+      end
+    end 
     render 'index'
   end
 

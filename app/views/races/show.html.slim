@@ -30,3 +30,5 @@ fieldset
 fieldset
   legend Дистанції
   = render 'distances/list', { distances: @race.distances, race: @race, competition: @competition }
+fieldset
+  = link_to "Результати", race_results_path(@race)
